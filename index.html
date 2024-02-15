@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cont">
+        <h1>QR Code Generator</h1>
+        <div class="image">
+            <a href="#" id="dwonloadQr"  download="QRCode.png">
+                <img src="OIP.jpg" alt="" srcset="" id="pic" >
+            </a>
+        </div>
+        
+        <div class="from">
+            <input type="text" id="write" placeholder="Write Your Content Here">
+            <button  id="ok">Create QRCode</button>
+        </div>
+    </div>
+    <!--function using js-->
+    <script >
+        let images =document.getElementById("pic");
+let contain = document.getElementById("write");
+let btn = document.getElementById("ok");
+//QR code download function
+let download = document.getElementById("dwonloadQr")
+btn.onclick=()=>{
+if(contain.value =="")return
+let linkQR ="https://api.qrserver.com/v1/create-qr-code/"
+ 
+ let URL=linkQR+"?size=500x500&data="+contain.value
+ images.src =URL
+ //QR code download function
+ download.href =URL;
+}
+
+    </script>
+</body>
+</html>
